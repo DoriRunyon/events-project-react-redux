@@ -5,24 +5,35 @@ import { enterArtist } from '../actions/index';
 
 class EnterArtist extends Component {
 
-    handleKeyPress = (event) => {
-        if (event.key == 'Enter') {
-            this.props.enterArtist(event.target.value);
-        }
+  constructor(props) {
+    super(props)
+
+    this.onArtistChange = this.onArtistChange.bind(this);
+  }
+
+  onArtistChange(event) {
+            event.preventDefault();
+            this.props.enterArtist(this.refs.artist.value);
     }
+
 
   render() {
 
-    console.log(`This is the artist: ${this.props.artist}`);
-    const city = `${this.props.city}`;
-
     return (
-      <div className="enter-artist">
-        <h3>live music search: {city}</h3>
-        <input 
-            placeholder='enter an artist'
-            onKeyPress={this.handleKeyPress}
-        />
+        <div className="enter-artist">
+        <h3>live music search: <span className="city">{this.props.city}</span></h3>
+            <form 
+                onSubmit={this.onArtistChange}
+                className="input-group">
+                <input 
+                    placeholder="enter an artist"
+                    className="form-control"
+                    ref="artist"
+                />
+             <span className="input-group-btn">
+                <button type="submit" className="btn btn-secondary">Submit</button>
+             </span>
+            </form>
       </div>
     );
   }
