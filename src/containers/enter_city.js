@@ -8,29 +8,18 @@ class EnterCity extends Component {
 	handleKeyPress = (event) => {
 		if (event.key == 'Enter') {
 			this.props.enterCity(event.target.value);
-			console.log('this worked!');
 		}
 	}
 
   render() {
 
-  	console.log(`This is the city: ${this.props.city}`);
-
-  	if (true) {
-  		return (
-      <div className="enter-city">
-      	<h3>live music blorb</h3>
-      	<input 
-      	onKeyPress={this.handleKeyPress}
-      	/>
-      </div>
-    );
-  	}
-
-    return (
+  	return (
       <div className="enter-city">
       	<h3>live music search</h3>
-      	<input />
+      	<input 
+      	placeholder='enter a city'
+      	onKeyPress={this.handleKeyPress}
+      	/>
       </div>
     );
   }
