@@ -11,3 +11,12 @@ a {
 .city {
 	font-weight: 200;
 }
+
+img {
+	width: 60%;
+	height: auto;
+}
+
+img:hover {
+	opacity: 0.65;
+}

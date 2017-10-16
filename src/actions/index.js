@@ -21,14 +21,27 @@ export function enterArtist(artist) {
 	};
 }
 
+function getRelatedArtists(artistId, accessToken) {
+	const relatedArtistRequest = `https://api.spotify.com/v1/artists/${artistId}/related-artists`;
+	const config = getConfigForSpotifyRequest(accessToken);
+	return axios.get(relatedArtistRequest, config);
+};
+
+function getConfigForSpotifyRequest(accessToken) {
+	return { headers: {'Authorization': `Bearer ${accessToken}` }};
+};
+
 export function fetchRelatedArtists(accessToken, currentArtist) {
 
 	const artistRequest = `https://api.spotify.com/v1/search?q=${currentArtist}&type=artist`;
-	const config = { headers: {'Authorization': `Bearer ${accessToken}` }};
-	const relatedArtists = axios.get(artistRequest, config);
+	const config = getConfigForSpotifyRequest(accessToken);
+	const relatedArtists = axios.get(artistRequest, config)
+		.then(response => getRelatedArtists(response.data.artists.items[0].id, accessToken));
 
 	return {
 		type: FETCH_RELATED_ARTISTS,
 		payload: relatedArtists
 	};
 }
+
+

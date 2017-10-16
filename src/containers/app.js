@@ -23,7 +23,6 @@ class App extends Component {
   	const city = `${this.props.city}`;
   	const artist = `${this.props.artist}`;
 
-  	console.log(city, artist);
 
   	//this seems weird - ask JC if he knows what's going on here
   	//why do I get an error unless I turn city into a string? 

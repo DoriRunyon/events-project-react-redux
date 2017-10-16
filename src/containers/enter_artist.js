@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { enterArtist, fetchRelatedArtists } from '../actions/index';
+import RelatedArtistList from '../components/related_artist_list';
+
+// why did this not work?  import { RelatedArtistList } from '../components/related_artist_list';
 
 class EnterArtist extends Component {
 
@@ -16,15 +19,8 @@ class EnterArtist extends Component {
             this.props.fetchRelatedArtists(this.props.accessToken, this.refs.artist.value);
     }
 
-  fetchRelatedArtists(accessToken) {
-
-  }
-
-
 
   render() {
-
-    console.log(this.props.relatedArtists);
 
     return (
         <div className="enter-artist">
@@ -41,7 +37,9 @@ class EnterArtist extends Component {
                 <button type="submit" className="btn btn-secondary">Submit</button>
              </span>
             </form>
-
+                <table className="table">
+                    <RelatedArtistList relatedA={this.props.relatedArtists} />
+                </table>
       </div>
     );
   }

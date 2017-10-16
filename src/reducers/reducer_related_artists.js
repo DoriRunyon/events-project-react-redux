@@ -1,7 +1,7 @@
 export default function(state = null, action) {
- switch(action.type) {
+ switch (action.type) {
     case 'FETCH_RELATED_ARTISTS':
-      return action.payload;
+      return action.payload.data;
  }
 
  return state;
