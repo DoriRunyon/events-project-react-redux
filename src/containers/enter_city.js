@@ -7,7 +7,6 @@ class EnterCity extends Component {
 
   constructor(props) {
   	super(props)
-
   	this.onCityChange = this.onCityChange.bind(this);
   }
 

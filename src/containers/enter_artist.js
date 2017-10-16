@@ -1,23 +1,30 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { enterArtist } from '../actions/index';
+import { enterArtist, fetchRelatedArtists } from '../actions/index';
 
 class EnterArtist extends Component {
 
   constructor(props) {
     super(props)
-
     this.onArtistChange = this.onArtistChange.bind(this);
   }
 
   onArtistChange(event) {
             event.preventDefault();
             this.props.enterArtist(this.refs.artist.value);
+            this.props.fetchRelatedArtists(this.props.accessToken, this.refs.artist.value);
     }
+
+  fetchRelatedArtists(accessToken) {
+
+  }
+
 
 
   render() {
+
+    console.log(this.props.relatedArtists);
 
     return (
         <div className="enter-artist">
@@ -34,6 +41,7 @@ class EnterArtist extends Component {
                 <button type="submit" className="btn btn-secondary">Submit</button>
              </span>
             </form>
+
       </div>
     );
   }
@@ -42,12 +50,13 @@ class EnterArtist extends Component {
 function mapStateToProps(state) {
     return {
         city: state.city,
-        artist: state.artist
+        artist: state.artist,
+        relatedArtists: state.relatedArtists
     };
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ enterArtist }, dispatch);
+    return bindActionCreators({ enterArtist, fetchRelatedArtists }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EnterArtist);
