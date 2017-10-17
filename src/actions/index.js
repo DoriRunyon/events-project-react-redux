@@ -38,6 +38,8 @@ export function fetchRelatedArtists(accessToken, currentArtist) {
 	const relatedArtists = axios.get(artistRequest, config)
 		.then(response => getRelatedArtists(response.data.artists.items[0].id, accessToken));
 
+	console.log(relatedArtists);
+
 	return {
 		type: FETCH_RELATED_ARTISTS,
 		payload: relatedArtists

@@ -12,6 +12,11 @@ a {
 	font-weight: 200;
 }
 
+.city:hover {
+	cursor: pointer;
+	font-weight: 400;
+}
+
 img {
 	width: 60%;
 	height: auto;

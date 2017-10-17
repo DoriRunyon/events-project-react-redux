@@ -1,10 +1,10 @@
 import React from 'react';
 
 
-const RelatedArtistItem = ({imageUrl}) => {
+const RelatedArtistItem = ({imageUrl, artistName, onArtistSelect}) => {
 
 	return (
-			<img src={imageUrl} />
+			<img onClick={() => onArtistSelect(artistName)} src={imageUrl} />
 		);
 };
 

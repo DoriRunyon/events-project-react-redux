@@ -9,8 +9,12 @@ const RelatedArtistList = (props) => {
 
         const artistRow = artistImgList.map(artist => {
 
+            console.log(artist.name);
+
             artistRowList.push(<td><RelatedArtistItem
-              key={artist.images[0].url}
+              onArtistSelect={props.onArtistSelect}
+              key={artist.name}
+              artistName={artist.name}
               imageUrl={artist.images[0].url}
              /></td>);
         });
@@ -20,7 +24,7 @@ const RelatedArtistList = (props) => {
         );
     }
 
-    if (props.relatedA !== null) {
+        if (props.relatedA !== null) {
 
    
             return (
