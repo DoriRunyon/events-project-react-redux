@@ -3,6 +3,15 @@
 	font-size: 140%;
 }
 
+.spotify-auth {
+	margin-top: 50px;
+}
+
+.spotify-auth a {
+	color: #32CD32;
+	font-size: 140%;
+}
+
 a {
 	color: #32CD32;
 	font-size: 140%;
@@ -10,6 +19,7 @@ a {
 
 .city {
 	font-weight: 200;
+	margin: 15px;
 }
 
 .city:hover {
@@ -25,3 +35,46 @@ img {
 img:hover {
 	opacity: 0.65;
 }
+
+.artist-name {
+	font-size: 80%;
+}
+
+li {
+	list-style: none;
+	font-size: 80%;
+}
+
+.events-list-item a {
+	font-size: 80%;
+	color: #32CD32;
+}
+
+.events-list-item {
+	margin: 25px !important;
+	padding: 5px !important;
+}
+
+form {
+	margin: 15px;
+}
+
+button {
+	background-color: #F5F5F5;
+}
+
+.above-artist-input button {
+	padding: 5px;
+	color: #32CD32;
+}
+
+.glyphicon {
+	margin: 5px;
+}
+
+.glyphicon-heart-empty:hover {
+	font-size: 120%;
+	cursor: pointer;
+	color: #228B22;
+}
+

@@ -10,6 +10,10 @@ class EnterCity extends Component {
   	this.onCityChange = this.onCityChange.bind(this);
   }
 
+  componentDidMount(){
+    this.refs.city.focus();
+  }
+
   onCityChange(event) {
   			event.preventDefault();
             this.props.enterCity(this.refs.city.value);

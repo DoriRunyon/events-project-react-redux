@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import EnterCity from './enter_city';
-import EnterArtist from './enter_artist';
+import MainSearch from './main_search';
 import SpotifyAuth from '../components/spotify_auth';
 import { connect } from 'react-redux';
 
@@ -8,48 +8,48 @@ class App extends Component {
 
   constructor(props) {
     super(props)
-    this.state = { hash: this.props.location.hash };
+    this.state = { hash: this.props.location.hash};
     this.getAccessToken = this.getAccessToken.bind(this);
   }
 
   getAccessToken(hash) {
 
-  	const accessToken = hash.substring(14, hash.indexOf('&token_type'));
-  	return accessToken;
+    const accessToken = hash.substring(14, hash.indexOf('&token_type'));
+    return accessToken;
   }
 
   render() {
 
-  	const city = `${this.props.city}`;
-  	const artist = `${this.props.artist}`;
+    const city = `${this.props.city}`;
+    const artist = `${this.props.artist}`;
 
 
-  	//this seems weird - ask JC if he knows what's going on here
-  	//why do I get an error unless I turn city into a string? 
+    //this seems weird - ask JC if he knows what's going on here
+    //why do I get an error unless I turn city into a string? 
 
-  	if (this.props.location.hash === '') {
-  		return (
-		      <div className="app">
-		      	<SpotifyAuth />
-		      </div>
-		    );
-		  }
+    if (this.props.location.hash === '') {
+      return (
+          <div className="app">
+            <SpotifyAuth />
+          </div>
+        );
+      }
 
-  	else if (city === 'null') {
-		    return (
-		      <div className="app">
-		      	<EnterCity />
-		      </div>
-		    );
-		  }
+    else if (city === 'null') {
+        return (
+          <div className="app">
+            <EnterCity />
+          </div>
+        );
+      }
 
-	return (
-		      <div className="app">
-		      	<EnterArtist accessToken={this.getAccessToken(this.state.hash)}/>
-		      </div>
-		    );	  
+  return (
+          <div className="app">
+            <MainSearch accessToken={this.getAccessToken(this.state.hash)}/>
+          </div>
+        );    
 
-	}
+  }
 }
 
 

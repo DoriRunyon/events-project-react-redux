@@ -9,13 +9,11 @@ const RelatedArtistList = (props) => {
 
         const artistRow = artistImgList.map(artist => {
 
-            console.log(artist.name);
-
-            artistRowList.push(<td><RelatedArtistItem
+            artistRowList.push(<td key={artist.name}><RelatedArtistItem
               onArtistSelect={props.onArtistSelect}
-              key={artist.name}
               artistName={artist.name}
               imageUrl={artist.images[0].url}
+              popularity={artist.popularity}
              /></td>);
         });
 
