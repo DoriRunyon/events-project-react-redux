@@ -17,6 +17,7 @@ const EventList = (props) => {
                                   return <EventsListItem
                                               eventName={event.displayName}
                                               onEventSelect={props.onEventSelect}
+                                              savedEvents={props.savedEvents}
                                               key={event.uri}
                                               location={event.location.city}
                                               uri={event.uri}

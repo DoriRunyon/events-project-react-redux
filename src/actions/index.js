@@ -35,7 +35,6 @@ function getConfigForSpotifyRequest(accessToken) {
 
 export function fetchRelatedArtists(accessToken, currentArtist) {
 
-	console.log(currentArtist);
 	const artistRequest = `https://api.spotify.com/v1/search?q=${currentArtist}&type=artist`;
 	const config = getConfigForSpotifyRequest(accessToken);
 	const relatedArtists = axios.get(artistRequest, config)

@@ -6,7 +6,6 @@ import RelatedArtistList from '../components/related_artist_list';
 import EventsList from '../components/events_list';
 import { Link } from 'react-router-dom';
 
-// why did this not work?  import { RelatedArtistList } from '../components/related_artist_list';
 
 class MainSearch extends Component {
 
@@ -72,6 +71,7 @@ class MainSearch extends Component {
                       events={this.props.events}
                       city={this.props.city}
                       onEventSelect={selectedEvent => this.onEventSave(selectedEvent)}
+                      savedEvents={this.props.savedEvents}
                   />
                   <table className="table">
                       <RelatedArtistList 
@@ -88,7 +88,8 @@ function mapStateToProps(state) {
         city: state.city,
         artist: state.artist,
         relatedArtists: state.relatedArtists,
-        events: state.events
+        events: state.events,
+        savedEvents: state.savedEvents
     };
 }
 

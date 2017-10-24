@@ -29,7 +29,6 @@ class SavedShows extends Component {
                 }
               );
 
-      console.log(savedEventsArray);
 
       return (
           savedEventsArray
@@ -42,7 +41,6 @@ class SavedShows extends Component {
             const events = this.props.savedEvents;
 
             if (!_.isEmpty(events)) {
-              console.log(`not empty!`);
               return (
                   <div className="list-group app">
                     <h3>My Saved Shows</h3>
